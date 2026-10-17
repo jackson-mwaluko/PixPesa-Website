@@ -1,0 +1,5 @@
+# robots.txt for PixPesa
+User-agent: *
+Allow: /
+
+Sitemap: https://www.pixpesa.com/sitemap.xml

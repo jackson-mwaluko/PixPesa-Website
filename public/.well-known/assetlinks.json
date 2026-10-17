@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.pixpesa.app.pixpesa",
+      "sha256_cert_fingerprints": [
+        "95:2A:2D:D3:FE:32:B8:ED:B2:43:D4:87:2A:6B:DB:C4:69:51:1B:99:EC:18:8B:DD:FA:5C:D5:34:39:8B:F5:A5",
+        "58:38:ED:C8:93:8E:6E:34:83:56:CE:3E:05:EC:7F:26:DA:1F:FB:D4:18:40:F0:BF:40:84:36:66:57:3B:85:C1"
+      ]
+    }
+  }
+]
