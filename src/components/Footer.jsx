@@ -39,6 +39,7 @@ export default function Footer() {
             <a data-nav="products">All-in-One QR</a>
             <a data-nav="app">Mobile App</a>
             <a data-nav="products">Merchant Payments</a>
+            <a href="https://business.pixpesa.com/login" target="_blank" rel="noopener noreferrer">Business Portal Login</a>
             <a data-nav="developers">API Platform</a>
             <a data-nav="pricing">Pricing &amp; Plans</a>
           </div>

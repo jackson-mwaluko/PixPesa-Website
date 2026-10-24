@@ -69,6 +69,7 @@ img{max-width:100%;display:block}
 .nav-links a.active{color:var(--text)}
 .nav-links a.active{background:var(--accent-soft);color:var(--accent)}
 .nav-actions{display:flex;align-items:center;gap:10px}
+.business-portal-link{font-size:13px!important}
 .theme-toggle{width:40px;height:40px;border-radius:10px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;display:grid;place-items:center;transition:all .25s}
 .theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
 .theme-toggle svg{width:18px;height:18px}
@@ -237,7 +238,7 @@ img{max-width:100%;display:block}
 /* ============== BRAND LOGO ============== */
 .brand-logo{height:30px;width:auto;display:block}
 .foot-brand .brand-logo{height:32px}
-.dev-logo{width:20px;height:20px;object-fit:contain;filter:brightness(0) invert(1)}
+.dev-logo{width:20px;height:20px;object-fit:contain}
 
 /* ============== PRODUCT SHOWCASE ============== */
 .showcase{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px}
@@ -587,6 +588,7 @@ footer{border-top:1px solid var(--border);background:var(--surface);padding:64px
   /* --- nav: keep everything on-screen, no horizontal scroll --- */
   .nav-inner{padding:12px 16px;gap:10px}
   .nav-cta{display:none}
+  .business-portal-link{display:none!important}
   .brand{font-size:18px}
   .partner-inner{gap:18px;padding:24px 0}
   /* --- waitlist modal fits the screen and scrolls if needed --- */

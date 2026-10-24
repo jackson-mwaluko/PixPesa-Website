@@ -32,6 +32,7 @@ export default function App() {
             <button className="theme-toggle" id="themeBtn" aria-label="Toggle theme">
               <svg id="iconMoon" viewBox="0 0 24 24" fill="none"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </button>
+            <a className="btn btn-ghost sm business-portal-link" href="https://business.pixpesa.com/login" target="_blank" rel="noopener noreferrer">Business Portal</a>
             <button className="btn btn-primary sm nav-cta" data-waitlist>Join Waitlist</button>
             <button className="hamburger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
           </div>
@@ -47,6 +48,7 @@ export default function App() {
         <a data-nav="about">About</a>
         <a data-nav="blog">Blog</a>
         <a data-nav="contact">Contact</a>
+        <a href="https://business.pixpesa.com/login" target="_blank" rel="noopener noreferrer">Business Portal Login</a>
         <button className="btn btn-primary lg" data-waitlist style={{"marginTop": "12px"}}>Join Waitlist</button>
       </div>
       
@@ -458,7 +460,10 @@ export default function App() {
                   <div className="uc"><span className="dot"><svg viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span><b>Instant settlement</b> — funds reach your account in real time.</span></div>
                   <div className="uc"><span className="dot"><svg viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span><b>Auto-reconciliation</b> — every payment matched to every order, automatically.</span></div>
                 </div>
-                <button className="btn btn-line" data-nav="contact">Start accepting payments</button>
+                <div className="hero-cta">
+                  <a className="btn btn-primary" href="https://business.pixpesa.com/login" target="_blank" rel="noopener noreferrer">Open Business Portal</a>
+                  <button className="btn btn-line" data-nav="contact">Talk to Sales</button>
+                </div>
               </div>
             </div>
       
