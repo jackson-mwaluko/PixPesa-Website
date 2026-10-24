@@ -19,13 +19,10 @@ export default function App() {
             Pix<b>Pesa</b>
           </div>
           <div className="nav-links">
-            <a data-nav="home" className="active" style={{ cursor: 'pointer' }}>Home</a>
             <a data-nav="solutions" style={{ cursor: 'pointer' }}>Solutions</a>
             <a data-nav="products" style={{ cursor: 'pointer' }}>Products</a>
             <a data-nav="pricing" style={{ cursor: 'pointer' }}>Pricing</a>
             <a data-nav="developers" style={{ cursor: 'pointer' }}>Developers</a>
-            <a data-nav="security" style={{ cursor: 'pointer' }}>Security</a>
-            <a data-nav="about" style={{ cursor: 'pointer' }}>About</a>
             <a data-nav="contact" style={{ cursor: 'pointer' }}>Contact</a>
           </div>
           <div className="nav-actions">
