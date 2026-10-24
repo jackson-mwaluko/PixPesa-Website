@@ -29,11 +29,13 @@ export default function Footer({ onWaitlist }) {
           <a href={BUSINESS_REGISTER}>Open an account</a>
           <a href={BUSINESS_LOGIN}>Sign in</a>
           <a href="/#business">Features</a>
+          <a href="/#pricing">Pricing</a>
           <a href="/#soundbox">Soundbox</a>
           <a href="/#developers">Merchant API</a>
         </div>
         <div className="footer-col">
           <h4>PixPesa</h4>
+          <a href="/#personal">PixPesa Personal</a>
           <button type="button" onClick={onWaitlist}>Get the app</button>
           <a href="/#faq">FAQ</a>
           <a href="/#contact">Contact</a>

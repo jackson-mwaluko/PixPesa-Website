@@ -5,9 +5,10 @@ import { BUSINESS_LOGIN, BUSINESS_REGISTER, track } from '../links.js';
 
 const LINKS = [
   ['Business', '/#business'],
+  ['Personal', '/#personal'],
+  ['Pricing', '/#pricing'],
   ['Soundbox', '/#soundbox'],
   ['Developers', '/#developers'],
-  ['FAQ', '/#faq'],
   ['Contact', '/#contact'],
 ];
 

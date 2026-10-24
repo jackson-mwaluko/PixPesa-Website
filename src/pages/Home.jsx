@@ -4,6 +4,7 @@ import ContactForm from '../components/ContactForm.jsx';
 import qrStand from '../assets/qr-stand.jpg';
 import soundbox from '../assets/soundbox-pack.jpg';
 import appShot from '../assets/app-dashboard.webp';
+import businessApp from '../assets/business-app.webp';
 import nmbLogo from '../assets/nmb-logo.webp';
 import { ADDRESS, BUSINESS_LOGIN, BUSINESS_REGISTER, EMAIL, WHATSAPP, track } from '../links.js';
 
@@ -22,13 +23,41 @@ const FEATURES = [
 
 const STEPS = [
   ['Open your account', 'Sign up online with your business details and verify your email.'],
-  ['Get your QR & till', 'Print your QR, add a Soundbox, invite your team and branches.'],
+  ['Go live', 'Once your business is verified, pay your first month and your QR and till are ready.'],
   ['Get paid & settle', 'Every payment lands in one balance. Pay out when you want.'],
+];
+
+const BUSINESS_APP = [
+  ['qr', 'Receive payment with your QR or an amount QR'],
+  ['send', 'Request, send, refund and pay bills'],
+  ['link', 'Create and share payment links'],
+  ['bank', 'See your balance and the next payout to your bank'],
+  ['chart', "Today's collection and the week at a glance"],
+];
+
+const PERSONAL = [
+  { icon: 'qr', title: 'Scan & Pay', text: 'Pay any PixPesa QR in a shop, taxi or market.' },
+  { icon: 'send', title: 'Send money', text: 'To a PixPesa ID, a phone number or a bank account.' },
+  { icon: 'bank', title: 'All your accounts', text: 'Link your bank accounts and see every balance in one place.' },
+  { icon: 'invoice', title: 'Bills & airtime', text: 'LUKU, water, TV, internet, government bills and airtime.' },
+  { icon: 'people', title: 'Mchango & splits', text: 'Run group contributions and Upatu, or split a bill with friends.' },
+  { icon: 'box', title: 'Kibubu', text: 'Put money aside for the things you are saving for.' },
+];
+
+const PLAN_INCLUDES = [
+  'Business portal and Business app',
+  'One QR, Lipa Namba and payment links',
+  'Receive up to TZS 10M a day',
+  'Invoices, products, stock and customers',
+  'Team roles and branches',
+  'Reports, reconciliation and payouts',
+  'Merchant API and webhooks',
 ];
 
 const FAQ = [
   ['Which wallets and banks can pay my QR?', 'Customers can pay from mobile money wallets, bank apps and the PixPesa app. You see every payment in one place, whatever it was paid from.'],
   ['How do I open a business account?', 'Go to business.pixpesa.com/register, add your business details and verify your email. You can start setting up your QR straight away.'],
+  ['How much does PixPesa Business cost?', 'Plans start at TZS 10,000 a month. Your first month is paid when your business goes live, and you can renew automatically from your business balance. Bigger businesses can move to a plan with higher limits.'],
   ['How do I get my money out?', 'Request a payout from the Business portal to your bank account or mobile wallet. Each payout and settlement is recorded for your reports.'],
   ['Can my staff use it without seeing everything?', 'Yes. Invite team members with roles, so a cashier can take payments while owners see reports and payouts. You can run several branches from one account.'],
   ['What is the Soundbox?', 'A small speaker that announces each payment out loud the moment it arrives, so you never need to check a phone at a busy counter.'],
@@ -87,7 +116,7 @@ export default function Home({ onWaitlist }) {
               <a className="btn btn-ghost btn-lg" href={BUSINESS_LOGIN} onClick={() => track('business_login_click', { from: 'hero' })}>Sign in</a>
             </div>
             <ul className="hero-ticks">
-              <li><Icon name="check" size={16} /> Sign up online</li>
+              <li><Icon name="check" size={16} /> From TZS 10,000 a month</li>
               <li><Icon name="check" size={16} /> Works with every wallet</li>
               <li><Icon name="check" size={16} /> Real-time alerts</li>
             </ul>
@@ -124,6 +153,23 @@ export default function Home({ onWaitlist }) {
         </div>
       </section>
 
+      <section className="section biz-app">
+        <div className="wrap split split-app">
+          <div className="app-shot app-shot-biz">
+            <img src={businessApp} alt="The PixPesa Business app home screen" width="523" height="1000" loading="lazy" />
+          </div>
+          <div>
+            <p className="eyebrow">PixPesa Business app</p>
+            <h2>Your shop, in your pocket.</h2>
+            <p className="muted">The same account on your phone. See today's collection live, take a payment in seconds and know when your next payout lands.</p>
+            <ul className="list">
+              {BUSINESS_APP.map(([icon, text]) => <li key={text}><Icon name={icon} size={18} /> {text}</li>)}
+            </ul>
+            <a className="btn btn-primary" href={BUSINESS_REGISTER} onClick={goRegister('business_app')}>Open business account <Icon name="arrow" size={18} /></a>
+          </div>
+        </div>
+      </section>
+
       <section className="section section-tint">
         <div className="wrap steps-wrap">
           <div className="section-head">
@@ -140,6 +186,28 @@ export default function Home({ onWaitlist }) {
             ))}
           </ol>
           <a className="btn btn-primary" href={BUSINESS_REGISTER} onClick={goRegister('steps')}>Start now <Icon name="arrow" size={18} /></a>
+        </div>
+      </section>
+
+      <section className="section" id="pricing">
+        <div className="wrap pricing">
+          <div className="section-head">
+            <p className="eyebrow">Pricing</p>
+            <h2>One simple plan to start.</h2>
+            <p className="muted">Everything your business needs to get paid, in one monthly price. No hardware needed to begin: your QR works from day one.</p>
+          </div>
+          <div className="price-card">
+            <div className="price-top">
+              <span className="price-name">Business</span>
+              <p className="price"><small>From</small> TZS 10,000 <span>/ month</span></p>
+              <p className="muted">Renews automatically from your business balance, so your QR stays live.</p>
+              <a className="btn btn-primary btn-lg btn-block" href={BUSINESS_REGISTER} onClick={goRegister('pricing')}>Open business account</a>
+              <a className="price-more" href="/#contact">Need higher limits? Talk to us about bigger plans</a>
+            </div>
+            <ul className="price-list">
+              {PLAN_INCLUDES.map((t) => <li key={t}><Icon name="check" size={18} /> {t}</li>)}
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -191,17 +259,27 @@ export default function Home({ onWaitlist }) {
         </div>
       </section>
 
-      <section className="section section-tint">
-        <div className="wrap split split-app">
-          <div className="app-shot">
-            <img src={appShot} alt="The PixPesa app home screen" width="593" height="1200" loading="lazy" />
-          </div>
-          <div>
-            <p className="eyebrow">For everyone</p>
-            <h2>The PixPesa app.</h2>
-            <p className="muted">Scan any PixPesa QR, send money, pay bills and see all your accounts in one place. Your PixPesa ID is all people need to pay you.</p>
-            <div className="hero-ctas">
-              <button className="btn btn-dark" type="button" onClick={onWaitlist}><Icon name="phone" size={18} /> Get early access</button>
+      <section className="section section-tint" id="personal">
+        <div className="wrap">
+          <div className="split split-app personal-head">
+            <div className="app-shot">
+              <img src={appShot} alt="The PixPesa personal app home screen" width="593" height="1200" loading="lazy" />
+            </div>
+            <div>
+              <p className="eyebrow">PixPesa Personal</p>
+              <h2>Your money, all in one app.</h2>
+              <p className="muted">PixPesa Personal brings your bank accounts, payments and bills together. Your PixPesa ID, like <b>asha@pixpesa</b>, is all anyone needs to pay you.</p>
+              <div className="personal-grid">
+                {PERSONAL.map((f) => (
+                  <div key={f.title} className="mini">
+                    <span className="mini-ic"><Icon name={f.icon} size={18} /></span>
+                    <div><strong>{f.title}</strong><p>{f.text}</p></div>
+                  </div>
+                ))}
+              </div>
+              <div className="hero-ctas">
+                <button className="btn btn-dark" type="button" onClick={onWaitlist}><Icon name="phone" size={18} /> Get early access</button>
+              </div>
             </div>
           </div>
         </div>
