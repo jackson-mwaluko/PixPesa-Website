@@ -1,11 +1,11 @@
 {
   "name": "PixPesa",
   "short_name": "PixPesa",
-  "description": "Tanzania's universal payment interoperability platform.",
+  "description": "One QR for every way to pay your business.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0D0F14",
-  "theme_color": "#0D0F14",
+  "background_color": "#F6F6F1",
+  "theme_color": "#6C63FF",
   "icons": [
     { "src": "/favicon.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
   ]
