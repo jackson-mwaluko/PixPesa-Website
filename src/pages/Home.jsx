@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Icon from '../components/Icon.jsx';
 import ContactForm from '../components/ContactForm.jsx';
+import Pricing from '../components/Pricing.jsx';
 import qrStand from '../assets/qr-stand.jpg';
 import soundbox from '../assets/soundbox-pack.jpg';
 import appShot from '../assets/app-dashboard.webp';
@@ -42,16 +43,6 @@ const PERSONAL = [
   { icon: 'invoice', title: 'Bills & airtime', text: 'LUKU, water, TV, internet, government bills and airtime.' },
   { icon: 'people', title: 'Mchango & splits', text: 'Run group contributions and Upatu, or split a bill with friends.' },
   { icon: 'box', title: 'Kibubu', text: 'Put money aside for the things you are saving for.' },
-];
-
-const PLAN_INCLUDES = [
-  'Business portal and Business app',
-  'One QR, Lipa Namba and payment links',
-  'Receive up to TZS 10M a day',
-  'Invoices, products, stock and customers',
-  'Team roles and branches',
-  'Reports, reconciliation and payouts',
-  'Merchant API and webhooks',
 ];
 
 const FAQ = [
@@ -193,21 +184,10 @@ export default function Home({ onWaitlist }) {
         <div className="wrap pricing">
           <div className="section-head">
             <p className="eyebrow">Pricing</p>
-            <h2>One simple plan to start.</h2>
+            <h2>Simple plans. Grow when you're ready.</h2>
             <p className="muted">Everything your business needs to get paid, in one monthly price. No hardware needed to begin: your QR works from day one.</p>
           </div>
-          <div className="price-card">
-            <div className="price-top">
-              <span className="price-name">Business</span>
-              <p className="price"><small>From</small> TZS 10,000 <span>/ month</span></p>
-              <p className="muted">Renews automatically from your business balance, so your QR stays live.</p>
-              <a className="btn btn-primary btn-lg btn-block" href={BUSINESS_REGISTER} onClick={goRegister('pricing')}>Open business account</a>
-              <a className="price-more" href="/#contact">Need higher limits? Talk to us about bigger plans</a>
-            </div>
-            <ul className="price-list">
-              {PLAN_INCLUDES.map((t) => <li key={t}><Icon name="check" size={18} /> {t}</li>)}
-            </ul>
-          </div>
+          <Pricing />
         </div>
       </section>
 
