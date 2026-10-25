@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Icon from './Icon.jsx';
 import { BUSINESS_REGISTER, track } from '../links.js';
+import { per, tzs, usePlans } from '../plans.js';
 
 // Plans come from the backend (staff set them up in the admin dashboard >
-// Plans), so a new plan shows here without a website change. If the API
-// can't be reached, the standard plan is shown.
-const API_ROOT = String(import.meta.env.VITE_API_URL || '').replace(/\/+$/, '').replace(/\/api$/, '');
-const FALLBACK = [{ code: 'standard', name: 'Standard', description: 'Everything you need to get paid and run your business.',
-  price: 10000, period_days: 30, is_default: true, daily_receive_limit: 10000000, benefits: [], features: [] }];
+// Plans), so a new plan shows here without a website change. No plans set
+// up means no plans shown.
 
 const EVERY_PLAN = [
   'Business portal and Business app',
@@ -18,19 +16,21 @@ const EVERY_PLAN = [
   'Merchant API and webhooks',
 ];
 
-const tzs = (n) => `TZS ${Number(n).toLocaleString('en-US', { maximumFractionDigits: 0 })}`;
-const per = (days) => (days === 30 ? 'month' : days === 365 ? 'year' : `${days} days`);
 const millions = (n) => (n >= 1e6 ? `TZS ${Number((n / 1e6).toFixed(1)).toLocaleString('en-US')}M` : tzs(n));
 
 export default function Pricing() {
-  const [plans, setPlans] = useState(FALLBACK);
-
-  useEffect(() => {
-    fetch(`${API_ROOT}/api/business/v1/public/plans/`)
-      .then((r) => (r.ok ? r.json() : Promise.reject(r)))
-      .then((data) => { if (Array.isArray(data?.plans) && data.plans.length) setPlans(data.plans); })
-      .catch(() => {});
-  }, []);
+  const plans = usePlans();
+  if (plans === null) return <div className="plans-loading" aria-label="Loading plans" />;
+  if (plans.length === 0) {
+    return (
+      <div className="plans-empty">
+        <span><Icon name="spark" size={22} /></span>
+        <h3>Plans are coming soon</h3>
+        <p>We're finalising PixPesa Business plans. Open your account now and you'll choose a plan before you go live.</p>
+        <a className="btn btn-primary" href={BUSINESS_REGISTER} onClick={() => track('business_register_click', { from: 'pricing_empty' })}>Open business account</a>
+      </div>
+    );
+  }
 
   const single = plans.length === 1;
   return (

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Icon from '../components/Icon.jsx';
 import ContactForm from '../components/ContactForm.jsx';
 import Pricing from '../components/Pricing.jsx';
+import { cheapest, per, tzs, usePlans } from '../plans.js';
 import qrStand from '../assets/qr-stand.jpg';
 import soundbox from '../assets/soundbox-pack.jpg';
 import appShot from '../assets/app-dashboard.webp';
@@ -48,7 +49,6 @@ const PERSONAL = [
 const FAQ = [
   ['Which wallets and banks can pay my QR?', 'Customers can pay from mobile money wallets, bank apps and the PixPesa app. You see every payment in one place, whatever it was paid from.'],
   ['How do I open a business account?', 'Go to business.pixpesa.com/register, add your business details and verify your email. You can start setting up your QR straight away.'],
-  ['How much does PixPesa Business cost?', 'Plans start at TZS 10,000 a month. Your first month is paid when your business goes live, and you can renew automatically from your business balance. Bigger businesses can move to a plan with higher limits.'],
   ['How do I get my money out?', 'Request a payout from the Business portal to your bank account or mobile wallet. Each payout and settlement is recorded for your reports.'],
   ['Can my staff use it without seeing everything?', 'Yes. Invite team members with roles, so a cashier can take payments while owners see reports and payouts. You can run several branches from one account.'],
   ['What is the Soundbox?', 'A small speaker that announces each payment out loud the moment it arrives, so you never need to check a phone at a busy counter.'],
@@ -92,6 +92,7 @@ function HeroVisual() {
 }
 
 export default function Home({ onWaitlist }) {
+  const from = cheapest(usePlans());
   return (
     <>
       <section className="hero">
@@ -107,7 +108,7 @@ export default function Home({ onWaitlist }) {
               <a className="btn btn-ghost btn-lg" href={BUSINESS_LOGIN} onClick={() => track('business_login_click', { from: 'hero' })}>Sign in</a>
             </div>
             <ul className="hero-ticks">
-              <li><Icon name="check" size={16} /> From TZS 10,000 a month</li>
+              {from && <li><Icon name="check" size={16} /> From {tzs(from.price)} a {per(from.period_days)}</li>}
               <li><Icon name="check" size={16} /> Works with every wallet</li>
               <li><Icon name="check" size={16} /> Real-time alerts</li>
             </ul>
