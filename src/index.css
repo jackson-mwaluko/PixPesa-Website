@@ -348,8 +348,8 @@ p { margin: 0; }
   .code { font-size: 12.5px; padding: 20px; }
   .cta-band { padding: 32px 24px; border-radius: 26px; }
   .cta-band-btns, .cta-band-btns .btn { width: 100%; }
-  .footer-grid { grid-template-columns: 1fr; }
-  .footer-brand { grid-column: auto; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px 20px; }
+  .footer-brand, .footer-col:last-child { grid-column: span 2; }
 }
 @media (max-width: 380px) {
   .nav-cta .btn-sm { display: none; }
