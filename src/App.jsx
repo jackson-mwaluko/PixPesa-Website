@@ -5,6 +5,7 @@ import Waitlist from './components/Waitlist.jsx';
 import Home from './pages/Home.jsx';
 import Legal from './pages/Legal.jsx';
 import Pay from './pages/Pay.jsx';
+import Verify from './pages/Verify.jsx';
 
 // The old site was one page of #sections; keep those links (sitemap, shares,
 // app-store listings) landing somewhere sensible.
@@ -63,6 +64,7 @@ export default function App() {
   const openWaitlist = () => setWaitlistOpen(true);
 
   if (route === '/pay') return <Pay />;
+  if (route === '/verify') return <Verify />;
 
   return (
     <>

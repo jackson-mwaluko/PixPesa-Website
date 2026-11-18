@@ -332,6 +332,17 @@ p { margin: 0; }
 .pay-help { color: var(--muted); font-size: 14px; margin-top: 16px; }
 .pay-skeleton { height: 260px; border-radius: 20px; background: linear-gradient(90deg, var(--ground-2), #f8f8f4, var(--ground-2)); background-size: 200% 100%; animation: shimmer 1.2s infinite linear; }
 @keyframes shimmer { to { background-position: -200% 0; } }
+.verify-card h1 { margin-top: 14px; }
+.verify-card h1 + .muted { margin-top: 8px; }
+.verify-badge { width: 64px; height: 64px; border-radius: 50%; display: inline-grid; place-items: center; color: #fff; }
+.verify-badge.ok { background: #16a34a; box-shadow: 0 10px 24px rgba(22, 163, 74, 0.3); }
+.verify-badge.bad { background: #dc2626; box-shadow: 0 10px 24px rgba(220, 38, 38, 0.25); }
+.verify-rows { text-align: left; border-top: 1px solid var(--line); margin: 0; }
+.verify-rows div { display: flex; justify-content: space-between; gap: 16px; padding: 12px 2px; border-bottom: 1px solid var(--line); }
+.verify-rows dt { color: var(--muted); font-size: 14px; }
+.verify-rows dd { margin: 0; font-weight: 700; text-align: right; }
+.verify-rows dd.is-ok { color: #16a34a; }
+.verify-rows .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
 .pay-foot { margin-top: auto; padding-top: 28px; display: grid; justify-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
 .pay-foot span { display: inline-flex; align-items: center; gap: 6px; }
 .pay-foot a { color: var(--violet); font-weight: 700; }
